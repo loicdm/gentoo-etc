@@ -27,3 +27,4 @@ nullmail:x:88:88:A user for the nullmailer:/var/spool/nullmailer:/sbin/nologin
 loicdm:x:1000:1000:Loïc Daudé Mondet:/home/loicdm:/bin/bash
 flatpak:x:313:313:System user; flatpak:/dev/null:/sbin/nologin
 sddm:x:219:219:A user for x11-misc/sddm:/var/lib/sddm:/sbin/nologin
+named:x:40:40:User for net-dns/bind:/etc/bind:/sbin/nologin

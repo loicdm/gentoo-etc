@@ -45,7 +45,7 @@ man:x:15:
 sshd:x:22:
 lpadmin:x:106:
 polkitd:x:102:
-pipewire:x:509:
+pipewire:x:509:loicdm
 plugdev:x:272:
 locate:x:245:
 nullmail:x:88:
@@ -58,3 +58,4 @@ stapdev:x:158:
 stapusr:x:156:
 gamemode:x:385:
 named:x:40:
+rtkit:x:133:
