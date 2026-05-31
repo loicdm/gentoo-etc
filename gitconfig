@@ -1,0 +1,4 @@
+[safe]
+	directory = /var/db/repos/guru
+	directory = /var/db/repos/librewolf
+	directory = /var/db/repos/gentoo

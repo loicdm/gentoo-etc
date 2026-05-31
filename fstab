@@ -1,0 +1,36 @@
+# /etc/fstab: static file system information.
+#
+# See the manpage fstab(5) for more information.
+#
+# NOTE: The root filesystem should have a pass number of either 0 or 1.
+#       All other filesystems should have a pass number of 0 or greater than 1.
+#
+# NOTE: Even though we list ext4 as the type here, it will work with ext2/ext3
+#       filesystems.  This just tells the kernel to use the ext4 driver.
+#
+# NOTE: You can use full paths to devices like /dev/sda3, but it is often
+#       more reliable to use filesystem labels or UUIDs. See your filesystem
+#       documentation for details on setting a label. To obtain the UUID, use
+#       the blkid(8) command.
+
+# <fs>			<mountpoint>	<type>		<opts>		<dump> <pass>
+
+#LABEL=boot		/boot		ext4		defaults	1 2
+#UUID=58e72203-57d1-4497-81ad-97655bd56494		/		xfs		defaults		0 1
+#LABEL=swap		none		swap		sw		0 0
+#/dev/cdrom		/mnt/cdrom	auto		noauto,ro	0 0
+# /dev/nvme0n1p7 LABEL=gentoo
+UUID=388c61e8-c2de-4207-a12c-2fd256173ec2	/         	btrfs     	rw,relatime,ssd,discard=async,space_cache=v2,subvol=/@	0 0
+
+# /dev/nvme0n1p1 LABEL=EFI
+UUID=7CA1-EA5A      	/efi      	vfat      	rw,relatime,fmask=0077,dmask=0077,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
+
+# /dev/nvme0n1p7 LABEL=gentoo
+UUID=388c61e8-c2de-4207-a12c-2fd256173ec2	/home     	btrfs     	rw,relatime,ssd,discard=async,space_cache=v2,subvol=/@home	0 0
+
+# /dev/nvme0n1p7 LABEL=gentoo
+UUID=388c61e8-c2de-4207-a12c-2fd256173ec2	/root     	btrfs     	rw,relatime,ssd,discard=async,space_cache=v2,subvol=/@root	0 0
+
+# /dev/nvme0n1p6 LABEL=swap
+UUID=6dc43f27-e48c-4c70-862e-dd3cfea918c3	none      	swap      	defaults  	0 0
+
