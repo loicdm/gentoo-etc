@@ -58,3 +58,9 @@ stapdev:x:158:
 stapusr:x:156:
 gamemode:x:385:
 named:x:40:
+rtkit:x:133:
+radvd:x:215:
+dnsmasq:x:275:
+tss:x:59:
+qemu:x:77:
+libvirt:x:79:

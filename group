@@ -26,7 +26,7 @@ portage:x:250:
 utmp:x:406:
 nogroup:x:65533:
 nobody:x:65534:
-kvm:x:78:
+kvm:x:78:qemu
 render:x:28:
 clock:x:550:
 systemd-resolve:x:193:
@@ -59,3 +59,8 @@ stapusr:x:156:
 gamemode:x:385:
 named:x:40:
 rtkit:x:133:
+radvd:x:215:
+dnsmasq:x:275:
+tss:x:59:
+qemu:x:77:
+libvirt:x:79:
