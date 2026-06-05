@@ -75,7 +75,7 @@ if status is-interactive
         set -g fish_greeting   
                                
         # Bitwarden SSH Agent socket
-        set --export SSH_AUTH_SOCK '/home/$USER/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock'  
+        set --export --global SSH_AUTH_SOCK "/home/$USER/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock"  
         # Charge le thème Dracula
         alias ls "eza --icons --group-directories-first --git -@ --git-repos --header --group --created --modified"
         alias ll "ls -l"
@@ -83,6 +83,10 @@ if status is-interactive
 	
 	if not set -q STARSHIP_CONFIG
     		set -gx STARSHIP_CONFIG /etc/starship.toml
+	end
+
+	function fish_command_not_found
+   		/usr/bin/command-not-found $argv
 	end
         
 	starship init fish | source

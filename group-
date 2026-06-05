@@ -26,7 +26,7 @@ portage:x:250:
 utmp:x:406:
 nogroup:x:65533:
 nobody:x:65534:
-kvm:x:78:
+kvm:x:78:qemu
 render:x:28:
 clock:x:550:
 systemd-resolve:x:193:

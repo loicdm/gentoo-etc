@@ -22,7 +22,7 @@ cdrw:x:80:
 usb:x:85:
 input:x:97:
 users:x:100:loicdm
-portage:x:250:
+portage:x:250:loicdm
 utmp:x:406:
 nogroup:x:65533:
 nobody:x:65534:
