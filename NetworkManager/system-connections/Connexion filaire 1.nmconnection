@@ -1,0 +1,16 @@
+[connection]
+id=Connexion filaire 1
+uuid=b25352b9-ebed-3079-b83e-651aa580e6c8
+type=ethernet
+autoconnect-priority=-100
+
+[ethernet]
+
+[ipv4]
+method=auto
+
+[ipv6]
+addr-gen-mode=stable-privacy
+method=auto
+
+[proxy]
