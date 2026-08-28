@@ -1,0 +1,10 @@
+sys-apps/util-linux caps
+# required by gnome-extra/gnome-boxes-49.1::gentoo
+# required by gnome-extra/gnome-boxes (argument)
+>=net-misc/spice-gtk-0.42-r4 smartcard vala
+# required by gnome-extra/gnome-boxes-49.1::gentoo
+# required by gnome-extra/gnome-boxes (argument)
+>=app-emulation/spice-0.16.0 smartcard
+# required by gnome-extra/gnome-boxes-49.1::gentoo
+# required by gnome-extra/gnome-boxes (argument)
+>=app-emulation/qemu-10.2.3 smartcard
