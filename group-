@@ -26,7 +26,7 @@ portage:x:250:loicdm
 utmp:x:406:
 nogroup:x:65533:
 nobody:x:65534:
-kvm:x:78:qemu
+kvm:x:78:qemu,loicdm
 render:x:28:
 clock:x:550:
 systemd-resolve:x:193:
@@ -63,4 +63,5 @@ radvd:x:215:
 dnsmasq:x:275:
 tss:x:59:
 qemu:x:77:
-libvirt:x:79:
+libvirt:x:79:loicdm
+android:x:174:
