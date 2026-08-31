@@ -70,7 +70,6 @@ or other application using the libvirt API.
     </disk>
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
-      <source file='/home/loicdm/Téléchargements/en-us_windows_11_iot_enterprise_version_25h2_x64_dvd_67098cd6.iso'/>
       <target dev='sdb' bus='sata'/>
       <readonly/>
       <address type='drive' controller='0' bus='0' target='0' unit='1'/>
@@ -174,9 +173,6 @@ or other application using the libvirt API.
       <target type='virtio' name='com.redhat.spice.0'/>
       <address type='virtio-serial' controller='0' bus='0' port='1'/>
     </channel>
-    <input type='tablet' bus='usb'>
-      <address type='usb' bus='0' port='2'/>
-    </input>
     <input type='mouse' bus='ps2'/>
     <input type='keyboard' bus='ps2'/>
     <tpm model='tpm-crb'>
@@ -195,18 +191,19 @@ or other application using the libvirt API.
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0'/>
     </video>
     <hostdev mode='subsystem' type='usb' managed='yes'>
-      <source startupPolicy='mandatory'>
+      <source startupPolicy='optional'>
         <vendor id='0x3710'/>
         <product id='0x7506'/>
       </source>
       <address type='usb' bus='0' port='1'/>
     </hostdev>
-    <redirdev bus='usb' type='spicevmc'>
-      <address type='usb' bus='0' port='3'/>
-    </redirdev>
-    <redirdev bus='usb' type='spicevmc'>
-      <address type='usb' bus='0' port='4'/>
-    </redirdev>
+    <hostdev mode='subsystem' type='usb' managed='yes'>
+      <source startupPolicy='optional'>
+        <vendor id='0x3710'/>
+        <product id='0x5501'/>
+      </source>
+      <address type='usb' bus='0' port='2'/>
+    </hostdev>
     <watchdog model='itco' action='reset'/>
     <memballoon model='virtio'>
       <address type='pci' domain='0x0000' bus='0x04' slot='0x00' function='0x0'/>
