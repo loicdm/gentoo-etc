@@ -30,25 +30,32 @@ esac
 
 __vte_termprop_signal() {
     local errsv="$?"
-    printf '\033]666;%s!\033\\' "$1"
+    printf '\e]666;%s!\e\\' "$1"
+    return $errsv
+}
+
+__vte_termprop_signal_psN() {
+    local errsv="$?"
+    # https://gitlab.gnome.org/GNOME/vte/-/work_items/2951
+    printf '\\e]666;%s!\\e\\\\' "$1"
     return $errsv
 }
 
 __vte_termprop_set() {
     local errsv="$?"
-    printf '\033]666;%s=%s\033\\' "$1" "$2"
+    printf '\e]666;%s=%s\e\\' "$1" "$2"
     return $errsv
 }
 
 __vte_termprop_reset() {
     local errsv="$?"
-    printf '\033]666;%s\033\\' "$1"
+    printf '\e]666;%s\e\\' "$1"
     return $errsv
 }
 
 __vte_osc7 () {
     local errsv="$?"
-    printf "\033]7;file://%s%s\033\\" "${HOSTNAME}" "$(/usr/libexec/vte-urlencode-cwd)"
+    printf "\e]7;file://%s%s\e\\" "${HOSTNAME}" "$(/usr/libexec/vte-urlencode-cwd)"
     return $errsv
 }
 
@@ -66,7 +73,7 @@ __vte_prompt_command() {
     local pwd='~'
     [ "$PWD" != "$HOME" ] && pwd=${PWD/#$HOME\//\~\/}
     pwd="${pwd//[[:cntrl:]]}"
-    printf "\033]0;%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${pwd}"
+    printf "\e]0;%s@%s:%s\e\\" "${USER}" "${HOSTNAME%%.*}" "${pwd}"
     __vte_termprop_signal "vte.shell.precmd"
     return $errsv
 }
@@ -85,7 +92,16 @@ if [[ -n "${BASH_VERSION:-}" ]]; then
     else
         PROMPT_COMMAND="__vte_prompt_command"
     fi
-    PS0=$(__vte_termprop_signal "vte.shell.preexec")
+
+    # '\r' serves two purposes here.
+    # It ensures that the kernel's cooked mode has the right idea of
+    # the column, important for handling TAB followed by BS keypresses.
+    # It is also a workaround for the string not to end in a backslash, as
+    # that would need different level of escaping in the 'promptvars' vs.
+    # non-'promptvars' cases to prevent spillover if a custom user string
+    # is appended, see
+    # https://gitlab.gnome.org/GNOME/vte/-/work_items/2951
+    PS0=$(__vte_termprop_signal_psN "vte.shell.preexec")'\r'"${PS0:-}"
 
     # Shell integration
     if [[ "$PS1" != *\]133\;* ]]; then
