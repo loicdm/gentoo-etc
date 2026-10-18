@@ -75,7 +75,7 @@ if status is-interactive
         set -g fish_greeting   
                                
         # Bitwarden SSH Agent socket
-        set --export --global SSH_AUTH_SOCK "/home/$USER/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock"  
+        set --export --global SSH_AUTH_SOCK "/home/$USER/.bitwarden-ssh-agent.sock"  
         # Charge le thème Dracula
         alias ls "eza --icons --group-directories-first --git -@ --git-repos --header --group --created --modified"
         alias ll "ls -l"

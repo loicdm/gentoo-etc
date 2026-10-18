@@ -34,3 +34,4 @@ UUID=388c61e8-c2de-4207-a12c-2fd256173ec2	/root     	btrfs     	rw,relatime,ssd,
 # /dev/nvme0n1p6 LABEL=swap
 UUID=6dc43f27-e48c-4c70-862e-dd3cfea918c3	none      	swap      	defaults  	0 0
 
+UUID="F2DE8308DE82C477"				/mnt/windows	ntfs3		defaults 	0 0
