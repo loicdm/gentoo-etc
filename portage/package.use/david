@@ -1,0 +1,8 @@
+# required by gnome-base/librsvg-2.62.4::gentoo[avif]
+# required by x11-themes/adwaita-icon-theme-50.0-r1::gentoo
+# required by virtual/freedesktop-icon-theme-0-r4::gentoo
+# required by www-client/librewolf-bin-160.0_p1::librewolf
+# required by @selected
+# required by @world (argument)
+>=media-libs/dav1d-1.5.4 abi_x86_32
+
