@@ -27,10 +27,11 @@ nullmail:x:88:88:A user for the nullmailer:/var/spool/nullmailer:/sbin/nologin
 loicdm:x:1000:1000:Loïc Daudé Mondet:/home/loicdm:/bin/bash
 flatpak:x:313:313:System user; flatpak:/dev/null:/sbin/nologin
 sddm:x:219:219:A user for x11-misc/sddm:/var/lib/sddm:/sbin/nologin
-named:x:40:40:User for net-dns/bind; user account removed @ 2026-07-21:/etc/bind:/sbin/nologin
+named:x:40:40:User for net-dns/bind:/etc/bind:/sbin/nologin
 rtkit:x:133:133:User for the Realtime Policy and Watchdog Daemon:/dev/null:/sbin/nologin
 qemu:x:77:77:System user; qemu:/dev/null:/sbin/nologin
 radvd:x:215:215:A user for the Router Advertisement Daemon:/dev/null:/sbin/nologin
 dnsmasq:x:275:275:User for net-dns/dnsmasq:/dev/null:/sbin/nologin
 tss:x:59:59:Trusted Software Stack for TPMs user:/dev/null:/sbin/nologin
-pcscd:x:47:47:A user for pcsc-lite:/dev/null:/sbin/nologin
+pcscd:x:47:47:A user for pcsc-lite; user account removed @ 2026-08-28:/dev/null:/sbin/nologin
+lxc:x:358:358:User for app-containers/lxc; user account removed @ 2026-11-20:/dev/null:/sbin/nologin

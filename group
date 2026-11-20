@@ -67,3 +67,4 @@ libvirt:x:79:
 android:x:174:
 openct:x:46:pcscd
 pcscd:x:47:
+lxc:x:358:
