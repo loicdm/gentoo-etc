@@ -1,3 +1,0 @@
-sys-libs/libcap static-libs
-app-containers/waydroid apparmor
-app-containers/lxc systemd apparmor seccomp
