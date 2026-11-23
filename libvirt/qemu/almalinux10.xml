@@ -1,16 +1,16 @@
 <!--
 WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
 OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
-  virsh edit fedora
+  virsh edit almalinux10
 or other application using the libvirt API.
 -->
 
 <domain type='kvm'>
-  <name>fedora</name>
-  <uuid>b4547631-ea9e-4c30-a3b3-29d0d1a961ab</uuid>
+  <name>almalinux10</name>
+  <uuid>9bbe9f9d-face-451f-a984-c31d7e6785a1</uuid>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
-      <libosinfo:os id="http://fedoraproject.org/fedora/unknown"/>
+      <libosinfo:os id="http://almalinux.org/almalinux/10"/>
     </libosinfo:libosinfo>
   </metadata>
   <memory unit='KiB'>8388608</memory>
@@ -42,7 +42,7 @@ or other application using the libvirt API.
     <emulator>/usr/bin/qemu-system-x86_64</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2' discard='unmap'/>
-      <source file='/var/lib/libvirt/images/fedora.qcow2'/>
+      <source file='/var/lib/libvirt/images/almalinux10.qcow2'/>
       <target dev='vda' bus='virtio'/>
       <address type='pci' domain='0x0000' bus='0x04' slot='0x00' function='0x0'/>
     </disk>
@@ -133,7 +133,7 @@ or other application using the libvirt API.
       <address type='pci' domain='0x0000' bus='0x03' slot='0x00' function='0x0'/>
     </controller>
     <interface type='network'>
-      <mac address='52:54:00:1e:42:2d'/>
+      <mac address='52:54:00:9e:9b:33'/>
       <source network='default'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
@@ -159,19 +159,16 @@ or other application using the libvirt API.
     </input>
     <input type='mouse' bus='ps2'/>
     <input type='keyboard' bus='ps2'/>
-    <graphics type='spice'>
-      <listen type='none'/>
+    <graphics type='spice' autoport='yes'>
+      <listen type='address'/>
       <image compression='off'/>
-      <gl enable='no'/>
     </graphics>
     <sound model='ich9'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x1b' function='0x0'/>
     </sound>
     <audio id='1' type='spice'/>
     <video>
-      <model type='virtio' heads='1' primary='yes' device='virtio-vga'>
-        <acceleration accel3d='no'/>
-      </model>
+      <model type='virtio' heads='1' primary='yes' device='virtio-vga'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0'/>
     </video>
     <redirdev bus='usb' type='spicevmc'>
