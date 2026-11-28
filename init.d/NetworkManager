@@ -1,10 +1,15 @@
 #!/sbin/openrc-run
 # Copyright (c) 2008 Saleem Abdulrasool <compnerd@compnerd.org>
-# Copyright 2013-2020 Gentoo Authors
+# Copyright 2013-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
+
+supervisor=supervise-daemon
 
 description="NetworkManager daemon. The service is marked as started only \
 when a network connection is established."
+command="/usr/sbin/NetworkManager"
+command_args_foreground="--no-daemon"
+no_new_privs=1
 
 depend() {
 	need dbus
@@ -23,11 +28,10 @@ start() {
 
 	[ -z "${INACTIVE_TIMEOUT}" ] && INACTIVE_TIMEOUT="1"
 
-	ebegin "Starting NetworkManager"
-	start-stop-daemon --start --quiet --pidfile /run/NetworkManager/NetworkManager.pid \
-		--exec /usr/sbin/NetworkManager -- --pid-file /run/NetworkManager/NetworkManager.pid
+	default_start
+
 	local _retval=$?
-	eend "${_retval}"
+
 	if [ "x${_retval}" = 'x0' ] && ! nm-online -t "${INACTIVE_TIMEOUT}"; then
 		einfo "Marking NetworkManager as inactive. It will automatically be marked"
 		einfo "as started after a network connection has been established."
@@ -44,19 +48,7 @@ stop() {
 		return 0
 	fi
 
-	ebegin "Stopping NetworkManager"
-	local pidfile=/run/NetworkManager/NetworkManager.pid
-	if [ ! -e "${pidfile}" ] && [ -e /var/run/NetworkManager.pid ]; then
-		# Try stopping the pid file used by <0.9.7
-		pidfile=/var/run/NetworkManager.pid
-		start-stop-daemon --stop --quiet --pidfile "${pidfile}"
-		ret=$?
-		[ ${ret} = 0 ] && [ -e "${pidfile}" ] && rm "${pidfile}"
-		eend ${ret}
-	else
-		start-stop-daemon --stop --quiet --pidfile "${pidfile}"
-		eend $?
-	fi
+	default_stop
 }
 
 # vim: set ft=gentoo-init-d ts=4 :

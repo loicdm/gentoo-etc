@@ -48,7 +48,7 @@ Defaults!/usr/sbin/visudo env_keep += "SUDO_EDITOR EDITOR VISUAL"
 ## Use a hard-coded PATH instead of the user's to find commands.
 ## This also helps prevent poorly written scripts from running
 ## arbitrary commands under sudo.
-Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/usr/lib/llvm/21/bin:/usr/lib/llvm/20/bin:/usr/lib/llvm/19/bin:/usr/lib/llvm/18/bin:/usr/lib/llvm/17/bin:/usr/lib/llvm/16/bin"
+Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/bin:/usr/lib/llvm/23/bin:/usr/lib/llvm/22/bin:/usr/lib/llvm/20/bin"
 ##
 ## You may wish to keep some of the following environment variables
 ## when running commands via sudo.
